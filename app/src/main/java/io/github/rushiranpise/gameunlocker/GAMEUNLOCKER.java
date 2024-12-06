@@ -96,6 +96,11 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
         "com.proximabeta.mf.uamo"
     };
 
+    // Packages to Spoof as Infinix GT 20 Pro 5G
+    private static final String[] packagesToChangeInfinixGT20P = {
+        "com.garena.game.kgth"
+    };
+
     // Packages to Spoof as iQOO 11 Pro
     private static final String[] packagesToChangeiQ11P = {
         "com.tencent.KiHan",
@@ -132,6 +137,12 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
         if (Arrays.asList(packagesToChangeBS4).contains(packageName)) {
             propsToChangeBS4();
             XposedBridge.log("Spoofed " + packageName + " as Black Shark 4");
+        }
+
+        // Infinix
+        if (Arrays.asList(packagesToChangeInfinixGT20P).contains(packageName)) {
+            propsToChangeInfinixGT20P();
+            XposedBridge.log("Spoofed " + packageName + " as Infinix GT 20 Pro 5G");
         }
 
         // Iqoo
@@ -203,6 +214,13 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
     private static void propsToChangeBS4() {
         setPropValue("MANUFACTURER", "blackshark");
         setPropValue("MODEL", "2SM-X706B");
+    }
+
+    // Infinix
+    // Props to Spoof as Infinix GT 20 Pro 5G
+    private static void propsToChangeInfinixGT20P() {
+        setPropValue("MANUFACTURER", "Infinix");
+        setPropValue("MODEL", "X6871-OP");
     }
 
     // Iqoo
