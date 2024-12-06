@@ -30,6 +30,11 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
         "com.pearlabyss.blackdesertm.gl"
     };
 
+    // Packages to Spoof as ROG Phone 8 Pro
+    private static final String[] packagesToChangeROG8P = {
+    ...
+    };
+
     // Packages to Spoof as Xperia 5
     private static final String[] packagesToChangeXP5 = {
         "com.garena.game.codm",
@@ -115,6 +120,11 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
             XposedBridge.log("Spoofed " + packageName + " as Asus ROG 6");
         }
 
+        if (Arrays.asList(packagesToChangeROG8P).contains(packageName)) {
+            propsToChangeROG8P();
+            XposedBridge.log("Spoofed " + packageName + " as Asus ROG 8 Pro");
+        }
+
         // Black Shark
         if (Arrays.asList(packagesToChangeBS4).contains(packageName)) {
             propsToChangeBS4();
@@ -169,6 +179,14 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
         setPropValue("MANUFACTURER", "asus");
         setPropValue("DEVICE", "AI2201");
         setPropValue("MODEL", "ASUS_AI2201");
+    }
+
+    // Props to Spoof as Asus Rog 8 Pro
+    private static void propsToChangeROG8P() {
+        setPropValue("BRAND", "asus");
+        setPropValue("MANUFACTURER", "asus");
+        setPropValue("DEVICE", "AI2401_A");
+        setPropValue("MODEL", "ASUS_AI2401_A");
     }
 
     // Blackshark
