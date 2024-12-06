@@ -21,7 +21,6 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
     private static final String TAG = GAMEUNLOCKER.class.getSimpleName();
     // Packages to Spoof as ROG Phone 6
     private static final String[] packagesToChangeROG6 = {
-        "com.activision.callofduty.shooter",
         "com.activision.callofudty.warzone",
         "com.ea.gp.fifamobile",
         "com.gameloft.android.ANMP.GloftA9HM",
@@ -42,9 +41,6 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
 
     // Packages to Spoof as Xperia 5
     private static final String[] packagesToChangeXP5 = {
-        "com.garena.game.codm",
-        "com.tencent.tmgp.kr.codm",
-        "com.vng.codmvn",
         "com.garena.game.kgvn"
     };
 
@@ -108,6 +104,14 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
         "com.tencent.tmgp.gnyx"
     };
 
+    // Packages to Spoof as Lenovo TB-9707F
+    private static final String[] packagesToChangeLenovoY700 = {
+        "com.activision.callofduty.shooter",
+        "com.garena.game.codm",
+        "com.tencent.tmgp.kr.codm",
+        "com.vng.codmvn"
+    };
+
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam loadPackageParam) {
 
@@ -134,6 +138,12 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
         if (Arrays.asList(packagesToChangeiQ11P).contains(packageName)) {
             propsToChangeiQ11P();
             XposedBridge.log("Spoofed " + packageName + " as iQOO 11 Pro");
+        }
+
+        // Lenovo
+        if (Arrays.asList(packagesToChangeLenovoY700).contains(packageName)) {
+            propsToChangeLenovoY700();
+            XposedBridge.log("Spoofed " + packageName + " as Lenovo TB-9707F");
         }
 
         // OnePlus
@@ -200,6 +210,13 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
     private static void propsToChangeiQ11P() {
         setPropValue("MANUFACTURER", "vivo");
         setPropValue("MODEL", "V2243A");
+    }
+
+    // Lenovo
+    // Props to Spoof as Lenovo TB-9707F
+    private static void propsToChangeLenovoY700() {
+        setPropValue("MANUFACTURER", "Lenovo");
+        setPropValue("MODEL", "TB-9707F");
     }
 
     // OnePlus
