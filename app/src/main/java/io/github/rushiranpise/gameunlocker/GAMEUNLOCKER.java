@@ -32,7 +32,12 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
 
     // Packages to Spoof as ROG Phone 8 Pro
     private static final String[] packagesToChangeROG8P = {
-    ...
+        "com.pubg.imobile",
+        "com.pubg.krmobile",
+        "com.rekoo.pubgm",
+        "com.tencent.ig",
+        "com.tencent.tmgp.pubgmhd",
+        "com.vng.pubgmobile"
     };
 
     // Packages to Spoof as Xperia 5
@@ -46,18 +51,12 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
     // Packages to Spoof as OnePlus 8 Pro
     private static final String[] packagesToChangeOP8P = {
         "com.netease.lztgglobal",
-        "com.pubg.imobile",
-        "com.pubg.krmobile",
-        "com.rekoo.pubgm",
         "com.riotgames.league.wildrift",
         "com.riotgames.league.wildrifttw",
         "com.riotgames.league.wildriftvn",
         "com.riotgames.league.teamfighttactics",
         "com.riotgames.league.teamfighttacticstw",
         "com.riotgames.league.teamfighttacticsvn",
-        "com.tencent.ig",
-        "com.tencent.tmgp.pubgmhd",
-        "com.vng.pubgmobile",
         "vng.games.revelation.mobile",
         "com.ngame.allstar.eu",
         "com.mojang.minecraftpe",
